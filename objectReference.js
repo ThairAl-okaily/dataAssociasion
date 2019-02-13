@@ -1,27 +1,14 @@
+
+
 const mongoose = require("mongoose");
+const Post = require("./models/post");
+const User = require("./models/user");
+
+
+
+
 
 mongoose.connect("mongodb://localhost/embeded_demo_2", {useNewUrlParser: true});
-
-
-var postSchema = new mongoose.Schema({
-    title: String,
-    content: String
-});
-const Post = mongoose.model("Post", postSchema);
-
-
-var userSchema = new mongoose.Schema({
-    email: String,
-    name: String,
-    posts: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Post"
-    }]
-});
-const User = mongoose.model("User", userSchema);
-
-
-
 
 Post.create({
     title: "how to cock salmon p33",
